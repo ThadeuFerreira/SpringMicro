@@ -1,5 +1,6 @@
 package com.example.SpringMicro;
 
+import com.example.SpringMicro.Kotlin.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ public class UserDaoService {
         users.add(new User(4, "Matheus", new Date()));
     }
 
-    public List<User> findAll(){
+    List<User> findAll(){
         return users;
     }
 
-    public User save(User user){
+    User save(User user){
         if(user.getId() == null){
             user.setId(users.size() +1);
         }
@@ -29,9 +30,9 @@ public class UserDaoService {
         return user;
     }
 
-    public User findOne(int id){
+    User findOne(int id){
         for(User user:users){
-            if(user.getId() == id)
+            if(id == user.getId())
                 return user;
         }
         return null;

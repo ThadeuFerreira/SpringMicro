@@ -1,5 +1,6 @@
 package com.example.SpringMicro;
 
+import com.example.SpringMicro.Kotlin.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +12,13 @@ import java.util.List;
 @RestController
 public class UserController {
 
+    final
+    private UserDaoService service;
+
     @Autowired
-    UserDaoService service;
+    public UserController(UserDaoService service) {
+        this.service = service;
+    }
 
     @GetMapping("/users")
     public List<User> retrieveAllUsers(){
