@@ -1,23 +1,28 @@
 package com.example.SpringMicro.Kotlin
 
+
 import com.example.SpringMicro.UserDaoService
+import com.example.SpringMicro.UserNotFoundException
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
-import java.util.concurrent.atomic.AtomicLong
-
-
 
 @RestController
-class GreetingController{
-    val counter = AtomicLong()
-    var service = UserDaoService()
+class UserControllerKotlin @Autowired
+constructor(private val service: UserDaoService) {
 
-    @GetMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name : String) =
-            Greeting(counter.incrementAndGet(), "Hello, $name")
+    @GetMapping("/users")
+    fun retrieveAllUsers(): List<User> {
+        return service.findAll()
+    }
 
-    @PostMapping("/usersKotlin")
+    @GetMapping("/users/{id}")
+    fun getUser(@PathVariable id: Int?): User {
+        return service.findOne(id!!) ?: throw UserNotFoundException("Cannot find user with id = $id")
+    }
+
+    @PostMapping("/users")
     fun addUser(@RequestBody user: User): ResponseEntity<Any> {
         val savedUser = service.save(user)
 

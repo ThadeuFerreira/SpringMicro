@@ -18,11 +18,11 @@ public class UserDaoService {
         users.add(new User(4, "Matheus", new Date()));
     }
 
-    List<User> findAll(){
+    public List<User> findAll(){
         return users;
     }
 
-    User save(User user){
+    public User save(User user){
         if(user.getId() == null){
             user.setId(users.size() +1);
         }
@@ -30,7 +30,7 @@ public class UserDaoService {
         return user;
     }
 
-    User findOne(int id){
+    public User findOne(int id){
         for(User user:users){
             if(id == user.getId())
                 return user;
