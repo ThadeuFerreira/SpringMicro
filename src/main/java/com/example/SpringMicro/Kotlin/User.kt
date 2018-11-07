@@ -2,7 +2,7 @@ package com.example.SpringMicro.Kotlin
 
 import java.util.Date
 
-class User {
+open class User {
     var id: Int? = null
     var name: String? = null
     var birthDay: Date? = null

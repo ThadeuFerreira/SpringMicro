@@ -9,9 +9,10 @@ import java.util.List;
 
 @Component
 public class UserDaoService {
-    private static List<User> users = new ArrayList<>();
+    private List<User> users;
 
-    static{
+    public UserDaoService(){
+        users = new ArrayList<>();
         users.add(new User(1, "Adam", new Date()));
         users.add(new User(2, "Thadeu", new Date()));
         users.add(new User(3, "Carlos", new Date()));
