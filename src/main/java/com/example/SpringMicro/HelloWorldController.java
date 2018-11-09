@@ -17,9 +17,7 @@ public class HelloWorldController {
     private MessageSource messageSource;
 
     @GetMapping(path = "/hello-world")
-    public String helloWorld(){
-        return "Hello World";
-    }
+    public String helloWorld(){return "Hello World";}
 
     @GetMapping(path = "/hello-world-bean")
     public HelloWorldBean helloWorldBean(){

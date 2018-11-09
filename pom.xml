@@ -73,13 +73,35 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
 	</dependencies>
+
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+				<execution>
+					<id>build-info</id>
+					<goals>
+						<goal>build-info</goal>
+					</goals>
+				</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.jetbrains.kotlin</groupId>
@@ -126,6 +148,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+
 	</build>
 
 
