@@ -1,6 +1,7 @@
 package com.example.SpringMicro.Kotlin
 
-import com.example.SpringMicro.UserDaoService
+import com.example.SpringMicro.User.User
+import com.example.SpringMicro.User.UserDaoService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder

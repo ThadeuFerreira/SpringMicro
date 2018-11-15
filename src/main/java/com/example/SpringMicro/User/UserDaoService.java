@@ -1,6 +1,5 @@
-package com.example.SpringMicro;
+package com.example.SpringMicro.User;
 
-import com.example.SpringMicro.Kotlin.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

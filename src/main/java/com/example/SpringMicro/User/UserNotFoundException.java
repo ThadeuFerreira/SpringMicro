@@ -1,4 +1,4 @@
-package com.example.SpringMicro;
+package com.example.SpringMicro.User;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

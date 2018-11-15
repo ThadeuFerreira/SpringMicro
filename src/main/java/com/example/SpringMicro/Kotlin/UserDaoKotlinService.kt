@@ -1,7 +1,7 @@
 package com.example.SpringMicro.Kotlin
 
 
-import com.example.SpringMicro.Kotlin.User
+import com.example.SpringMicro.User.User
 import org.springframework.stereotype.Component
 
 import java.util.ArrayList

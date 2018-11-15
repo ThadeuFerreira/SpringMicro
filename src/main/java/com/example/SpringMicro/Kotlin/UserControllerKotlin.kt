@@ -1,12 +1,10 @@
 package com.example.SpringMicro.Kotlin
 
 
-import com.example.SpringMicro.UserController
-import com.example.SpringMicro.UserDaoService
-import com.example.SpringMicro.UserNotFoundException
+import com.example.SpringMicro.User.User
+import com.example.SpringMicro.User.UserNotFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.hateoas.Resource
-import org.springframework.hateoas.mvc.ControllerLinkBuilder
 import org.springframework.hateoas.mvc.ControllerLinkBuilder.*
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

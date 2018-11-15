@@ -1,6 +1,5 @@
-package com.example.SpringMicro;
+package com.example.SpringMicro.User;
 
-import com.example.SpringMicro.Kotlin.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
