@@ -1,19 +1,19 @@
 package com.example.SpringMicro.Post;
 
 import com.example.SpringMicro.User.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
     private String description;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JsonIgnore
     private User user;
 
     @Override

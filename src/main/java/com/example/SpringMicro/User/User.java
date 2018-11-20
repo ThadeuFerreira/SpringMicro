@@ -1,10 +1,10 @@
 package com.example.SpringMicro.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.SpringMicro.Post.Post;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,6 +13,9 @@ public class User {
     private Integer Id;
     private String name;
     private Date BirthDay;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
 
     public User() {
     }
@@ -45,5 +48,13 @@ public class User {
 
     public void setBirthDay(Date birthDay) {
         BirthDay = birthDay;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }
