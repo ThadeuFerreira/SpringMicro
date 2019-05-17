@@ -13,7 +13,7 @@ import java.util.List;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
-@Api(value = "UserController", description = "Greeting people")
+@Api(value = "UserController", description = "Greeting2 people")
 public class UserController {
     @Autowired
     UserDaoService service;
