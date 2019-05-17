@@ -2,6 +2,10 @@ package com.example.SpringMicro;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -14,26 +18,34 @@ import java.util.Set;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig {
+public class SwaggerConfig extends WebMvcConfigurationSupport {
 
-    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES =
-            new HashSet<String>(Arrays.asList("application/json", "application/xml"));
-    private static final Contact DEFAULT_CONTACT = new Contact("Thadeu Melo","github","thadeu.afm@gmail.com");
-    private static final ApiInfo DEFAULT_API_INFO = new ApiInfo("Thadeu Api Documentation",
-            "This is a test",
-            "3.14",
-            "www.mytermsofservice.com",
-            DEFAULT_CONTACT,
-            "Apache",
-            "www.licenseurl.com"
-    );
     @Bean
-    public Docket api(){
-
+    public Docket greetingApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(DEFAULT_API_INFO)
-                .produces(DEFAULT_PRODUCES_AND_CONSUMES)
-                .consumes(DEFAULT_PRODUCES_AND_CONSUMES);
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.example.swaggerready"))
+                .build()
+                .apiInfo(metaData());
+
     }
 
+    private ApiInfo metaData() {
+        return new ApiInfoBuilder()
+                .title("Spring Boot REST API")
+                .description("\"Spring Boot REST API for greeting people\"")
+                .version("1.0.0")
+                .license("Apache License Version 2.0")
+                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+                .build();
+    }
+
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 }
